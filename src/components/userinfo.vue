@@ -1,34 +1,31 @@
 <template>
-<div class="bg-light p-5 mb-4 rounded">
+<div class="">
   <div v-if="loading" class="placeholder-glow">
     <span class="placeholder col-6"></span> <br />
     <span class="placeholder col-3"></span><br />
     <span class="placeholder col-6"></span>
   </div>
   <div v-if="!loading">
-    <userinfo />
-    Actual content
-
-
+    <div>{{name}}</div>
+    <div class="small text-muted"><span>Seit {{date}} auf Exchange</span> · <span>{{item_count}} Stücke online</span></div>
   </div>
 </div>
 </template>
 
 <script>
-import userinfo from '@/components/userinfo.vue'
-
 export default {
-  name: 'item-desc',
-  components:{userinfo},
+  name: 'userinfo',
   props: {},
   data() {
     return {
       loading: true,
-
+      name: "John Doe",
+      date: "3w",
+      item_count: "15"
     }
   },
-  created(){
-    this.loading=false;
+  created() {
+    this.loading = false;
   }
 }
 </script>
