@@ -7,7 +7,7 @@
   </div>
   <div v-if="!loading">
     <userinfo />
-    Actual content
+    {{text}}
 
 
   </div>
@@ -24,11 +24,14 @@ export default {
   data() {
     return {
       loading: true,
-
+      text:""
     }
   },
-  created(){
-    this.loading=false;
+  watch:{
+    text:(val)=>{
+      if(val)
+      this.loading=false;
+    }
   }
 }
 </script>
