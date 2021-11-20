@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'userinfo',
   props: {},
@@ -25,7 +27,11 @@ export default {
     }
   },
   created() {
-    this.loading = false;
+    axios.get("/api/user.txt", {params:{id:"123"}}).then((res)=>{
+      this.loading = false;
+      let data=JSON.parse(res);
+      this.name=data.name;
+    })
   }
 }
 </script>
